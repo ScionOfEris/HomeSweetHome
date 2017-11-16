@@ -1,0 +1,35 @@
+#!/bin/sh
+
+# This script sets up my home dir the way I like it.
+
+
+# First, grab my stuff from github
+( cd ~/.home ; git pull )
+# if git pull fails, bail
+if [ "$?" -ne '0' ] ; then
+  echo 'NOT UPDATING HOME!  Failed to pull repo.'
+  exit 11
+fi
+
+# Then, update my .files
+for file in .bashrc .bash_logout .profile .vimrc ; do
+  cp ~/.home/${file} ~
+done
+
+# Get my various stuff from .home/bin
+if [ ! -d ~/bin ] ; then
+  mkdir ~/bin
+  chmod 755 ~/bin
+fi
+
+( cd ~/.home/bin
+  for file in * ; do
+    rm -f ~/bin/$file
+    ln -s ~/.home/bin/$file ~/bin/$file
+  done
+)
+
+
+# Note that we updated
+touch ~/.homesweethome
+

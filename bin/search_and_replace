@@ -1,0 +1,10 @@
+#!/bin/sh
+
+SEARCH=$1
+REPLACE=$2
+FILE=$3
+
+
+#echo -e "%s/$1/$2/g\nwq"
+
+echo -e "%s/$1/$2/g\nwq" | ex $3

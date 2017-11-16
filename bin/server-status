@@ -1,0 +1,4 @@
+#!/bin/sh
+
+
+lynx --dump --width=300 http://${1}/server-status
