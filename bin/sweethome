@@ -12,8 +12,9 @@ if [ "$?" -ne '0' ] ; then
 fi
 
 # Then, update my .files
-for file in .bashrc .bash_logout .profile .vimrc ; do
-  cp ~/.home/${file} ~
+for file in .bashrc .bash_logout .bash_profile .vimrc ; do
+  rm -f ~/${file}
+  ln -s ~/.home/${file} ~
 done
 
 # Get my various stuff from .home/bin
@@ -25,7 +26,7 @@ fi
 ( cd ~/.home/bin
   for file in * ; do
     rm -f ~/bin/$file
-    ln -s ~/.home/bin/$file ~/bin/$file
+    ln -s ~/.home/bin/$file ~/bin
   done
 )
 

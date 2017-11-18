@@ -126,3 +126,14 @@ export EDITOR
 
 # this makes bash act like zsh for multi-line stuff in history:
 shopt -s lithist
+
+# WINDOWS does weird things... a new shell is not a login shell, so gets no profile
+# so... to make stuff agnostic, doing this:
+
+BASHRC=true
+export BASHRC
+if [ "$BASH_PROFILE" != 'true' ] ; then
+  . ~/.bash_profile
+fi
+
+echo running .bashrc
