@@ -3,16 +3,18 @@
 # This script sets up my home dir the way I like it.
 
 
-# First, grab my stuff from github
-( cd ~/.home ; git pull )
-# if git pull fails, bail
-if [ "$?" -ne '0' ] ; then
-  echo 'NOT UPDATING HOME!  Failed to pull repo.'
-  exit 11
+# First, grab my stuff from github unless $1 is --noup
+if [ "$1" != '--noup' ] ; then
+  ( cd ~/.home ; git pull )
+  # if git pull fails, bail
+  if [ "$?" -ne '0' ] ; then
+    echo 'NOT UPDATING HOME!  Failed to pull repo.'
+    exit 11
+  fi
 fi
 
 # Then, update my .files
-for file in .bashrc .bash_logout .bash_profile .vimrc ; do
+for file in .bashrc .bash_logout .bash_profile .bash_aliases .vimrc ; do
   rm -f ~/${file}
   ln -s ~/.home/${file} ~
 done

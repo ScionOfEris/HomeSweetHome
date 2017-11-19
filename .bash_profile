@@ -11,4 +11,9 @@ if [ "$BASHRC" != 'true' ] ; then
   . ~/.bashrc
 fi
 
-echo running .bashrc
+# lets use vi style shell
+# hmm... not sure....
+#set -o vi
+
+
+echo running .bash_profile
