@@ -37,3 +37,5 @@ export GPG_TTY
 
 alias kill_pgp="pkill -9 gpg-agent ; source ~/.bastionrc"
 #
+
+echo running .bastionrc
