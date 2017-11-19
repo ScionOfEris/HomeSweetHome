@@ -86,6 +86,11 @@ fi
 # aliases
 . ~/.bash_aliases
 
+# If we're a bastion, set up fancy bastion stuff
+if [ -f ~/.bastion ] ; then
+  . ~/.bastionrc
+fi
+
 echo running .bashrc
 
 

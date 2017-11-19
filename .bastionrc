@@ -1,0 +1,39 @@
+# This is a set up file for my Bastions.
+# handles stuff like SSH agent setup
+
+# SSH Agent stuff
+test=`ps auxw | grep ssh-agent | grep -E "$USER" | grep -v grep  | awk '{print $2}' | xargs`
+if [ "$test" = "" ]; then
+  # there is no agent running
+  if [ -e "$HOME/agent.sh" ]; then
+    # remove the old file
+    rm -f $HOME/agent.sh
+  fi;
+  # start a new agent
+  ssh-agent | grep -v echo >& $HOME/agent.sh
+fi
+test -e $HOME/agent.sh && source $HOME/agent.sh
+alias kagent="kill -9 $SSH_AGENT_PID"
+alias sadd='ssh-add -t 10h'
+#
+
+# GPG Agent stuff
+test=`ps auxw | grep gpg-agent | grep -E 'swilson' | grep -v grep  | awk '{print $2}' | xargs`
+if [ "$test" = "" ]; then
+  #there is no agent running
+  if [ -e "$HOME/.gpg-agent-info" ]; then
+    # remove the old file
+    rm -f $HOME/.gpg-agent-info
+  fi;
+  # start a new agent
+  #gpg-agent --daemon --enable-ssh-support  --write-env-file "${HOME}/.gpg-agent-info"
+  gpg-agent --daemon --write-env-file "${HOME}/.gpg-agent-info" --pinentry-program /usr/bin/pinentry-curses
+  chmod 600 ${HOME}/.gpg-agent-info
+fi
+source ${HOME}/.gpg-agent-info
+export GPG_AGENT_INFO
+GPG_TTY=$(tty)
+export GPG_TTY
+
+alias kill_pgp="pkill -9 gpg-agent ; source ~/.bastionrc"
+#
