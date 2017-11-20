@@ -14,7 +14,7 @@ if [ "$1" != '--noup' ] ; then
 fi
 
 # Then, update my .files
-for file in .bashrc .bash_logout .bash_profile .bash_aliases .bastionrc .vimrc ; do
+for file in .bashrc .bash_logout .bash_profile .bastionrc .vimrc ; do
   rm -f ~/${file}
   ln -s ~/.home/${file} ~
 done
