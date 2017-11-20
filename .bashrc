@@ -87,8 +87,10 @@ else
 fi
 
 
-# aliases
-. ~/.bash_aliases
+# load up aliases, if any
+if [ -f ~/.bash_aliases ] ; then
+  . ~/.bash_aliases
+fi
 
 # If we're a bastion, set up fancy bastion stuff
 if [ -f ~/.bastion ] ; then
