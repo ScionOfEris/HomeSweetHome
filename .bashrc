@@ -71,6 +71,10 @@ if [ "$BASH_PROFILE" != 'true' ] ; then
     . ~/.bash_profile
     # also, move me to my homedir, since MS starts me somewehre odd
     cd ~
+
+    # and cuz this works:
+    DISPLAY=:0  ; export DISPLAY
+    # needs Xming running to work though
   fi
 fi
 
