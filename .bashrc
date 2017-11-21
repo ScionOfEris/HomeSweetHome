@@ -69,15 +69,17 @@ if [ "$BASH_PROFILE" != 'true' ] ; then
   # this is only needed on Windows boxes, as otherwise new shells don't run it
   if [ -n "`uname -a | grep -i microsoft`" ] ; then
     . ~/.bash_profile
-    # also, move me to my homedir, since MS starts me somewehre odd
-    cd ~
-
-    # and cuz this works:
-    DISPLAY=:0  ; export DISPLAY
-    # needs Xming running to work though
   fi
 fi
 
+# other windows specific stuff
+if [ -n "`uname -a | grep -i microsoft`" ] ; then
+  DISPLAY=:0  ; export DISPLAY
+  # needs Xming running to work though
+
+  # also, move me to my homedir, since MS starts me somewehre odd
+  cd ~
+fi
 
 # Prompts:
 if [ "$UID" == '0' ] ; then
