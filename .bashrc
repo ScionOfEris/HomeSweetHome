@@ -83,9 +83,9 @@ fi
 
 # Prompts:
 if [ "$UID" == '0' ] ; then
-  PS1='< \[\e[1m\]\h \[\e[0m\]\[\e[7m\]ROOT\[\e[27m\] \W \[\e[7m\]>>\[\e[27m\]'
+  PS1='< \[\e[1m\]\h\[\e[0m\] \[\e[7m\]ROOT\[\e(B\e[m\] \W \[\e[7m\]>>\[\e(B\e[m\] '
 else
-  PS1='< \[\e[1m\]\h \[\e[0m\]\W \[\e[7m\]>>\[\e[27m\] '
+  PS1='< \[\e[1m\]\h\[\e[0m\] \W \[\e[7m\]>>\[\e(B\e[m\] '
 fi
 
 
