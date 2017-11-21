@@ -16,4 +16,14 @@ fi
 #set -o vi
 
 
+# tmux does odd stuff.  I thought this needed to be in bashrc, but apparently it
+# needs to be here.
+
+# If we're a bastion, set up fancy bastion stuff
+if [ -f ~/.bastion ] ; then
+  . ~/.bastionrc
+  . ~/.bashrc
+fi
+
+
 echo running .bash_profile
