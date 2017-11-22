@@ -26,7 +26,12 @@ if [ ! -d ~/bin ] ; then
 fi
 
 # vim setup
-rm -f ~/.vim
+if [ -d ~/.vim ] ; then
+  rm -rf ~/.vim
+else
+  rm -f ~/.vim
+fi
+
 ln -s ~/.home/vim ~/.vim
 
 
