@@ -25,6 +25,11 @@ if [ ! -d ~/bin ] ; then
   chmod 755 ~/bin
 fi
 
+# vim setup
+rm -f ~/.vim
+ln -s ~/.home/vim ~/.vim
+
+
 ( cd ~/.home/bin
   for file in * ; do
     rm -f ~/bin/$file

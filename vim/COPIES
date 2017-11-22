@@ -1,0 +1,13 @@
+# Notes for my vim directory.
+
+Many things would probably be better to set up with symlinks.  I may do that yet...
+but it would require scripts to deal with.  A git repo can't have symlinks in it, so
+for now, we'll cheat, but I'll document any copy that should be a symlink here.
+
+
+Commands from bleahblah/vim
+
+# cp -r Git_Repos/vim-pathogen/autoload autoload
+# cp -r Git_Repos/syntastic/ bundle/
+# cp ftplugin/gnupg.vim ftplugin/asc.vim
+
