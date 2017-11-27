@@ -1,10 +1,44 @@
-#!/bin/sh
+#!/usr/bin/python
 
-SEARCH=$1
-REPLACE=$2
-FILE=$3
+# Search and replace strings.
+# Arg 1 is string to be replaced
+# Arg 2 is replacement
+# Args 3+ are the files to do the replacement on
 
+import sys
+import os
+import fileinput
 
-#echo -e "%s/$1/$2/g\nwq"
+Program = sys.argv[0]
 
-echo -e "%s/$1/$2/g\nwq" | ex $3
+if len(sys.argv) < 3 :
+  print "Error, improper arguments."
+  print "Usage: %s <String1> <String2> <File1> ..." % Program
+  print ""
+  exit(99)
+
+STRING_TO_BE_REPLACED = sys.argv[1]
+STRING_TO_REPLACE = sys.argv[2]
+
+# counter for going through files
+i = 3
+ERROR = 'false'
+
+while ERROR == 'false':
+  if os.path.isfile(sys.argv[i]):
+    with open(sys.argv[i], 'r') as file :
+      filedata = file.read()
+    filedata = filedata.replace(STRING_TO_BE_REPLACED, STRING_TO_REPLACE)
+    with open(sys.argv[i], 'w') as file :
+      file.write(filedata)
+    print "Edited %s" % sys.argv[i]
+
+  else:
+    ERROR = 'true'
+    print "Error: %s is not a valid filename" % sys.argv[i]
+    print "Aborting."
+  
+  i = i + 1
+  if i >= len(sys.argv):
+    ERROR = 'true'
+
