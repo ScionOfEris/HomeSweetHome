@@ -88,6 +88,9 @@ else
   PS1='< \[\e[1m\]\h\[\e[0m\] \W \[\e[7m\]>>\[\e(B\e[m\] '
 fi
 
+# AWS
+AWS_REGION='us-east-1'
+export AWS_REGION
 
 # load up aliases, if any
 if [ -f ~/.bash_aliases ] ; then
