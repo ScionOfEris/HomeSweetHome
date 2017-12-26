@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# cuz I always have to look this up....
+
+sudo mdadm --detail /dev/md0
