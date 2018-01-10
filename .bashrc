@@ -105,6 +105,10 @@ if [ -f ~/.bash_aliases ] ; then
   . ~/.bash_aliases
 fi
 
+# except this alias... I always want this
+alias susu='sudo -s HOME=$HOME'
+
+
 echo running .bashrc
 
 
