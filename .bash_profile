@@ -19,8 +19,8 @@ fi
 # tmux does odd stuff.  I thought this needed to be in bashrc, but apparently it
 # needs to be here.
 
-# If we're a bastion, set up fancy bastion stuff
-if [ -f ~/.bastion ] ; then
+# If we're a bastion, but not root, set up fancy bastion stuff
+if [ -f ~/.bastion -a "$UID" != '0' ] ; then
   . ~/.bastionrc
   . ~/.bashrc
 fi
