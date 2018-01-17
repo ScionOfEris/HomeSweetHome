@@ -108,6 +108,13 @@ fi
 # except this alias... I always want this
 alias susu='sudo -s HOME=$HOME'
 
+# not getting my .bash_profile doing that.. so....
+if [ "$UID" == '0' ] ; then
+  if [ -z "$BASH_PROFILE" ] ; then
+    . ~/.bash_profile
+  fi
+fi
+
 
 echo running .bashrc
 
