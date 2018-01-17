@@ -1,5 +1,5 @@
 # set path
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:${HOME}/bin
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/opt/puppetlabs/bin:/opt/bin:${HOME}/bin
 
 
 # WINDOWS does weird things... a new shell is not a login shell, so gets no profile
