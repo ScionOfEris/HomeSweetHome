@@ -82,8 +82,12 @@ fi
 
 # other windows specific stuff
 if [ -n "`uname -a | grep -i microsoft`" ] ; then
-  DISPLAY=:0  ; export DISPLAY
-  # needs Xming running to work though
+
+  # if we have no $DISPLAY, set it
+  if [ -z "$DISPLAY" ] ; then
+    DISPLAY=localhost:0  ; export DISPLAY
+    # needs Xming running to work though
+  fi
 
   # also, move me to my homedir, since MS starts me somewehre odd
   cd ~
