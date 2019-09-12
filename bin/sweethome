@@ -23,7 +23,11 @@ done
 if [ -z "`grep 'puppet controlled' ~/.bashrc`" ] ; then
   rm -f ~/.bashrc
   ln -s ~/.home/.bashrc ~
-fi
+else 
+# lets use .bashrc.git for all our homesweethomey things
+  rm -f ~/.bashrc.git
+  ln -s ~/.home/.bashrc ~/.bashrc.git
+#
 
 # Get my various stuff from .home/bin
 if [ ! -d ~/bin ] ; then
