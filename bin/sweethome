@@ -27,7 +27,7 @@ else
 # lets use .bashrc.git for all our homesweethomey things
   rm -f ~/.bashrc.git
   ln -s ~/.home/.bashrc ~/.bashrc.git
-#
+fi
 
 # Get my various stuff from .home/bin
 if [ ! -d ~/bin ] ; then
