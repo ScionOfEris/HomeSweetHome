@@ -20,7 +20,7 @@ for file in .bash_logout .bash_profile .bastionrc .vimrc ; do
 done
 
 # handle .bashrc only if it isn't puppet distributed
-if [ -z "`grep 'puppet controlled' ~/.bashrc`" ] ; then
+if [ -z "`grep puppetified ~/.bashrc`" ] ; then
   rm -f ~/.bashrc
   ln -s ~/.home/.bashrc ~
 else 
