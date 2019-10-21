@@ -119,6 +119,9 @@ if [ "$UID" == '0' ] ; then
   fi
 fi
 
+# running into odd issues since upgrade at home due to this...
+LANG=en_US.utf-8
+export LANG
 
 echo running .bashrc
 
